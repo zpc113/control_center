@@ -22,11 +22,17 @@
     <!-- 交换器和队列上一定要用declared-by属性绑定admin -->
     <!-- 配置queue -->
     <rabbit:queue id="queueExecute" declared-by="admin" name="queueExecute" durable="true" auto-delete="false" exclusive="false"/>
+    <!-- 配置下载服务的queue  -->
+    <rabbit:queue id="queueDownload" declared-by="admin" name="queueDownload" durable="true" auto-delete="false" exclusive="false"/>
+    <!-- 配置解析服务的queue  -->
+    <rabbit:queue id="queueParse" declared-by="admin" name="queueParse" durable="true" auto-delete="false" exclusive="false"/>
 
     <!-- 配置交换器 -->
     <rabbit:direct-exchange id="exchangeExecute" declared-by="admin" name="exchangeExecute" durable="true" auto-delete="false">
         <rabbit:bindings>
             <rabbit:binding queue="queueExecute" key="queueExecuteKey"/>
+            <rabbit:binding queue="queueDownload" key="queueDownloadKey"/>
+            <rabbit:binding queue="queueParse" key="queueParseKey"/>
         </rabbit:bindings>
     </rabbit:direct-exchange>
     <!---->

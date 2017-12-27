@@ -2,9 +2,7 @@ package com.zpc.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
 import com.zpc.dao.controlcenter.ScheduleDao;
-import com.zpc.dto.ExecuteResult;
-import com.zpc.dto.OrderMessage;
-import com.zpc.dto.Request;
+import com.zpc.dto.*;
 import com.zpc.entity.controlcenter.TaskConfig;
 import com.zpc.service.AlertService;
 import com.zpc.service.TaskConfigService;
@@ -39,8 +37,7 @@ public class AlertServiceImpl implements AlertService {
     public ExecuteResult sendMessage(long taskId, String order) {
         // 向队列服务器发送新建队列指令
         TaskConfig taskConfig = taskConfigService.getConfig(taskId);
-        String requestUrl = taskConfig.getSeedUrl();
-        Request request = makeRequest(requestUrl);
+        Request request = makeRequest(taskConfig);
 
         OrderMessage message = new OrderMessage();
         message.setRequest(request);
@@ -48,7 +45,7 @@ public class AlertServiceImpl implements AlertService {
         String queueName = "QueueName" + taskId;
         message.setContainerName(queueName);
         try {
-            rabbitTemplate.convertAndSend("queueExecuteKey", message);
+            rabbitTemplate.convertAndSend(RoutingKey.QUEUE_ROUTINGKEY , message);
             logger.info("队列指令发送成功 " + order + "  " + message.toString());
 
         } catch (Exception e) {
@@ -58,13 +55,62 @@ public class AlertServiceImpl implements AlertService {
         return new ExecuteResult(true, order + "指令发送成功，队列名为 : " + queueName);
     }
 
-    public Request makeRequest(String requestUrl) {
+    /**
+     * 暂停任务
+     * @param taskId
+     * @param order
+     * @return
+     */
+    public ExecuteResult sendMessageSuspend(long taskId , long scheduleId ,  String order) {
+        String containerName = "QueueName" + taskId + "_scheduleId_" + scheduleId;
+        OrderMessage orderMessageSuspend = new OrderMessage();
+        orderMessageSuspend.setContainerName(containerName);
+        orderMessageSuspend.setOrder(ControlExecutorOrder.SUSPEND);
+        boolean b = true;
+        String message = "";
+        // 发送消息到下载服务器
+        try {
+            rabbitTemplate.convertAndSend(RoutingKey.DOWNSERVICE_ROUTINGKEY , orderMessageSuspend);
+            logger.info("暂停下载服务消息发送成功！ -----> " + containerName);
+        } catch (Exception e) {
+            b = false;
+            message = "暂停下载服务消息发送失败 ----> " + containerName;
+            logger.error(e.getMessage() , message);
+        }
+        // 发送消息到解析服务器
+        try {
+            rabbitTemplate.convertAndSend(RoutingKey.PARSESERVICE_ROUTINGKEY , orderMessageSuspend);
+            logger.info("暂停解析服务消息发送成功！ -----> " + containerName);
+        } catch (Exception e) {
+            b = false;
+            message = message + ";暂停解析服务消息发送失败 ----> " + containerName;
+            logger.info("暂停解析服务消息发送失败 -----> " + containerName);
+        }
+        ExecuteResult executeResult = new ExecuteResult();
+        if (!b) {
+            executeResult.setMessage(message);
+            executeResult.setSuccess(b);
+            return executeResult;
+        }
+        executeResult.setMessage("消息发送成功！");
+        executeResult.setSuccess(b);
+        return executeResult;
+    }
+
+    public Request makeRequest(TaskConfig taskConfig) {
+        String requestUrl = taskConfig.getSeedUrl();
         Request request = new Request();
         Map<String, Object> map = (Map<String, Object>) JSONObject.parse(requestUrl);
         request.setUrl((String) map.get("url"));
         request.setMethod((String) map.get("method"));
+        if (taskConfig.getUserAgent() == 0) {
+            request.setMobile(true);
+        } else {
+            request.setMobile(false);
+        }
         // TODO 完善对应的信息
         return request;
     }
+
 
 }

@@ -82,11 +82,11 @@ public class TaskConfigController {
      * @param taskId
      * @return
      */
-    @RequestMapping(value = "/{taskId}/suspend" , method = RequestMethod.POST,
+    @RequestMapping(value = "/{taskId}/{scheduldId}/suspend" , method = RequestMethod.POST,
             produces = {"application/json;charset=utf-8"})
     @ResponseBody
-    public AjaxResult suspend(@PathVariable("taskId") long taskId) {
-        ExecuteResult executeResult = alertService.sendMessage(taskId , TaskOrder.SUSPEND);
+    public AjaxResult suspend(@PathVariable("taskId") long taskId , @PathVariable("scheduleId") long scheduleId) {
+        ExecuteResult executeResult = alertService.sendMessageSuspend(taskId , scheduleId ,  TaskOrder.SUSPEND);
         if (executeResult.isSuccess()){
             return new AjaxResult(true);
         }

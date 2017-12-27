@@ -9,4 +9,5 @@ public interface AlertService {
 
     ExecuteResult sendMessage(long taskId , String order);
 
+    ExecuteResult sendMessageSuspend(long taskId , long scheduleId , String order);
 }
