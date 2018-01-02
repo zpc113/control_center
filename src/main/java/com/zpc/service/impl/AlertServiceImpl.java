@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
+import java.util.concurrent.ExecutorService;
 
 /**
  * Created by 和谐社会人人有责 on 2017/11/28.
@@ -84,7 +85,7 @@ public class AlertServiceImpl implements AlertService {
         } catch (Exception e) {
             b = false;
             message = message + ";暂停解析服务消息发送失败 ----> " + containerName;
-            logger.info("暂停解析服务消息发送失败 -----> " + containerName);
+            logger.error("暂停解析服务消息发送失败 -----> " + containerName);
         }
         ExecuteResult executeResult = new ExecuteResult();
         if (!b) {
@@ -110,6 +111,52 @@ public class AlertServiceImpl implements AlertService {
         }
         // TODO 完善对应的信息
         return request;
+    }
+
+    /**
+     * 停止任务
+     * @param taskId
+     * @param scheduleId
+     * @param order
+     * @return
+     */
+    public ExecuteResult sendMessageStop(long taskId, long scheduleId, String order) {
+        String containerName = "QueueName" + taskId + "_scheduleId_" + scheduleId;
+        OrderMessage orderMessage = new OrderMessage();
+        orderMessage.setOrder(order);
+        orderMessage.setContainerName(containerName);
+        try {
+            rabbitTemplate.convertAndSend(RoutingKey.DOWNSERVICE_ROUTINGKEY , orderMessage);
+            logger.info("销毁下载线程池请求发送成功" + orderMessage.toString());
+            return new ExecuteResult(true , null);
+        } catch (Exception e) {
+            logger.error(e.getMessage() , "销毁下载线程池请求发送失败" + orderMessage.toString());
+        }
+
+        return new ExecuteResult(false , null);
+    }
+
+    /**
+     * 恢复任务
+     * @param taskId
+     * @param scheduleId
+     * @param order
+     * @return
+     */
+    public ExecuteResult sendMessageRecover(long taskId, long scheduleId, String order) {
+        String containerName = "QueueName" + taskId + "_scheduleId_" + scheduleId;
+        OrderMessage orderMessage = new OrderMessage();
+        orderMessage.setOrder(order);
+        orderMessage.setContainerName(containerName);
+        try {
+            rabbitTemplate.convertAndSend(RoutingKey.DOWNSERVICE_ROUTINGKEY , orderMessage);
+            logger.info("恢复下载线程池请求发送成功" + orderMessage.toString());
+            return new ExecuteResult(true , null);
+        } catch (Exception e) {
+            logger.error(e.getMessage() , "销毁下载线程池请求发送失败" + orderMessage.toString());
+        }
+
+        return new ExecuteResult(false , null);
     }
 
 

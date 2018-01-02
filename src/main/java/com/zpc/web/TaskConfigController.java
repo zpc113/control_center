@@ -1,5 +1,6 @@
 package com.zpc.web;
 
+import com.zpc.dto.ControlExecutorOrder;
 import com.zpc.dto.TaskOrder;
 import com.zpc.dto.AjaxResult;
 import com.zpc.dto.ExecuteResult;
@@ -94,15 +95,31 @@ public class TaskConfigController {
     }
 
     /**
+     * 暂停任务
+     * @param taskId
+     * @return
+     */
+    @RequestMapping(value = "/{taskId}/{scheduldId}/recover" , method = RequestMethod.POST,
+            produces = {"application/json;charset=utf-8"})
+    @ResponseBody
+    public AjaxResult recover(@PathVariable("taskId") long taskId , @PathVariable("scheduleId") long scheduleId) {
+        ExecuteResult executeResult = alertService.sendMessageRecover(taskId , scheduleId ,  ControlExecutorOrder.NEW);
+        if (executeResult.isSuccess()){
+            return new AjaxResult(true);
+        }
+        return new AjaxResult(false);
+    }
+
+    /**
      * 停止任务
      * @param taskId
      * @return
      */
-    @RequestMapping(value = "/{taskId}/stop" , method = RequestMethod.POST,
+    @RequestMapping(value = "/{taskId}/{scheduldId}/stop" , method = RequestMethod.POST,
             produces = {"application/json;charset=utf-8"})
     @ResponseBody
-    public AjaxResult stop(@PathVariable("taskId") long taskId) {
-        ExecuteResult executeResult = alertService.sendMessage(taskId , TaskOrder.STOP);
+    public AjaxResult stop(@PathVariable("taskId") long taskId , @PathVariable("scheduleId") long scheduleId) {
+        ExecuteResult executeResult = alertService.sendMessageStop(taskId , scheduleId , ControlExecutorOrder.DESTROY);
         if (executeResult.isSuccess()){
             return new AjaxResult(true);
         }
