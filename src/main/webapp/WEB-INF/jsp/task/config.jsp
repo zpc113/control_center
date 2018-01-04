@@ -6,7 +6,7 @@
 <head>
     <%@include file="../common/head.jsp" %>
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
     <title>任务配置</title>
 </head>
 <div class="container">
@@ -56,17 +56,49 @@
                         </div>
                         <input type="hidden" name="taskId" value="${taskInfo.taskId}"/>
                         <button type="submit" class="btn btn-default">保存</button>
-                        <button type="button" id="execute" class="btn btn-primary">运行</button>
+                        <button type="button" id="<c:choose><c:when test="${taskInfo.runStatus}==0">execute</c:when>
+                                                    <c:when test="${taskInfo.runStatus}==1">suspend</c:when></c:choose>"
+                                class="btn btn-primary"><c:choose><c:when test="${taskInfo.runStatus}==0">运行</c:when>
+                            <c:when test="${taskInfo.runStatus}==1">暂停</c:when></c:choose></button>
+                        <c:if test="${taskInfo.runStatus}==1">
+                            <button type="button" id="stop" class="btn btn-danger">停止</button>
+                        </c:if>
                         <script type="text/javascript">
                             $("#execute").click(function execute() {
-                                $.post('/config/'+ ${taskId} +'/run' , {} , function (result) {
+                                $.post('/config/' + ${taskInfo.taskId} + '/run' , {} , function (result) {
                                     if(result && result['success']) {
                                         console.log(result);
                                         alert("执行成功");
+                                        $("#execute").text("暂停");
+                                        $("#execute").attr("id" , "suspend");
                                     } else {
-                                        alert("执行失败!");
+                                        alert("运行任务操作执行失败!");
                                     }
                                 });
+                            });
+                            // 暂停请求
+                            $("#suspend").click(function suspend() {
+                                $.post('/config/' + ${taskInfo.taskId} + '/' + ${schedule.scheduleId} + '/recover' , {} , function (result) {
+                                    if (result && result['success']) {
+                                        alert("暂停成功");
+                                    } else {
+                                        alert("暂停任务操作执行失败！");
+                                    }
+                                })
+                            });
+                            // 停止操作
+                            $("#stop").click(function stop() {
+                                $.post('/config/' + ${taskInfo.taskId} + '/' + ${schedule.scheduleId} + '/stop' , {} , function (result) {
+                                    if (result && result['success']) {
+                                        alert("停止任务成功");
+                                        $("#suspend").text("运行");
+                                        $("#suspend").attr("id" , "execute");
+                                        // 删除停止按钮
+                                        $("#stop").remove();
+                                    } else {
+                                        alert("停止任务操作执行失败");
+                                    }
+                                })
                             });
                         </script>
                     </div>

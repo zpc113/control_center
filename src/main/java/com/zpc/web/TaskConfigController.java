@@ -1,9 +1,11 @@
 package com.zpc.web;
 
+import com.zpc.dao.controlcenter.ScheduleDao;
 import com.zpc.dto.ControlExecutorOrder;
 import com.zpc.dto.TaskOrder;
 import com.zpc.dto.AjaxResult;
 import com.zpc.dto.ExecuteResult;
+import com.zpc.entity.controlcenter.Schedule;
 import com.zpc.entity.controlcenter.TaskConfig;
 import com.zpc.entity.controlcenter.TaskInfo;
 import com.zpc.service.AlertService;
@@ -34,6 +36,8 @@ public class TaskConfigController {
     private TaskInfoService taskInfoService;
     @Autowired
     private AlertService alertService;
+    @Autowired
+    private ScheduleDao scheduleDao;
 
     /**
      * 获取任务配置
@@ -45,6 +49,10 @@ public class TaskConfigController {
     public String getConfig(@PathVariable("taskId") long taskId , Model model) {
         TaskConfig taskConfig = taskConfigService.getConfig(taskId);
         TaskInfo taskInfo = taskInfoService.findById(taskId);
+        if (taskInfo.getRunStatus() != 0) {
+            Schedule schedule = scheduleDao.getSchedule(taskId);
+            model.addAttribute("schedule" , schedule);
+        }
         model.addAttribute("taskConfig" , taskConfig);
         model.addAttribute("taskInfo" , taskInfo);
         return "/task/config";

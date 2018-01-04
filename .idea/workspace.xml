@@ -2,11 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e85de51-79d8-4aea-a4f9-7cf4bc867d51" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/static/css/bootstrap.min.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/static/js/bootstrap.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/static/js/jquery-3.2.1.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zpc/service/AlertService.java" afterPath="$PROJECT_DIR$/src/main/java/com/zpc/service/AlertService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zpc/service/impl/AlertServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/zpc/service/impl/AlertServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zpc/dao/controlcenter/ScheduleDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/zpc/dao/controlcenter/ScheduleDao.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/zpc/web/TaskConfigController.java" afterPath="$PROJECT_DIR$/src/main/java/com/zpc/web/TaskConfigController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/controlcenter/Schedule.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/controlcenter/Schedule.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/common/head.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/common/head.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/task/config.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/task/config.jsp" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -23,10 +27,10 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="AlertServiceImpl.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="AlertServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/zpc/service/impl/AlertServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
+            <state relative-caret-position="1294">
               <caret line="134" column="0" lean-forward="true" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
               <folding />
             </state>
@@ -36,23 +40,14 @@
       <file leaf-file-name="Schedule.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/controlcenter/Schedule.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="513">
-              <caret line="19" column="21" lean-forward="true" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
+            <state relative-caret-position="459">
+              <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding>
-                <marker date="1513170549953" expanded="true" signature="335:535" ph="SELECT sched... cloud_crawler_schedule" />
-                <marker date="1513170549953" expanded="true" signature="676:785" ph="insert into cloud_crawler_schedule... " />
-                <marker date="1513170549953" expanded="true" signature="857:992" ph="UPDATE cloud... " />
+                <marker date="1515075709170" expanded="true" signature="335:535" ph="SELECT sched... cloud_crawler_schedule" />
+                <marker date="1515075709170" expanded="true" signature="658:767" ph="insert into cloud_crawler_schedule... " />
+                <marker date="1515075709170" expanded="true" signature="910:1019" ph="insert into cloud_crawler_schedule... " />
+                <marker date="1515075709170" expanded="true" signature="1091:1226" ph="UPDATE cloud... " />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RabbitTemplate.class" pinned="false" current-in-tab="false">
-        <entry file="jar://F:/repository/org/springframework/amqp/spring-rabbit/1.5.1.RELEASE/spring-rabbit-1.5.1.RELEASE.jar!/org/springframework/amqp/rabbit/core/RabbitTemplate.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7911">
-              <caret line="393" column="16" lean-forward="false" selection-start-line="393" selection-start-column="16" selection-end-line="393" selection-end-column="16" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -67,92 +62,62 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TaskConfig.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/controlcenter/TaskConfig.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="756">
-              <caret line="28" column="34" lean-forward="false" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
-              <folding>
-                <marker date="1514210047108" expanded="true" signature="339:496" ph="select task_... cloud_crawler_task_config" />
-                <marker date="1514210047108" expanded="true" signature="591:802" ph="insert into cloud_crawler_task_config... " />
-                <marker date="1514210047108" expanded="true" signature="909:1228" ph="UPDATE cloud... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TaskInfo.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/controlcenter/TaskInfo.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="516">
-              <caret line="47" column="14" lean-forward="true" selection-start-line="47" selection-start-column="14" selection-end-line="47" selection-end-column="14" />
-              <folding>
-                <marker date="1513170549876" expanded="true" signature="299:396" ph="SELECT task_... cloud_crawler_task" />
-                <marker date="1513170549876" expanded="true" signature="509:635" ph="SELECT task_... cloud_crawler_task" />
-                <marker date="1513170549876" expanded="true" signature="754:911" ph="SELECT task_... cloud_crawler_task" />
-                <marker date="1513170549876" expanded="true" signature="979:1056" ph="insert into cloud_crawler_task... " />
-                <marker date="1513170549876" expanded="true" signature="1132:1257" ph="update cloud... " />
-                <marker date="1513170549876" expanded="true" signature="1325:1381" ph="DELETE FROM " />
-                <marker date="1513170549876" expanded="true" signature="1458:1581" ph="update cloud... " />
-                <marker date="1513170549876" expanded="true" signature="1660:1787" ph="update cloud... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AlertService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/zpc/service/AlertService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="15" column="36" lean-forward="false" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="TaskConfigController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/zpc/web/TaskConfigController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="808">
-              <caret line="105" column="70" lean-forward="false" selection-start-line="105" selection-start-column="70" selection-end-line="105" selection-end-column="70" />
+            <state relative-caret-position="268">
+              <caret line="109" column="59" lean-forward="false" selection-start-line="109" selection-start-column="52" selection-end-line="109" selection-end-column="59" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TaskInfoController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/zpc/web/TaskInfoController.java">
+      <file leaf-file-name="config.jsp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/task/config.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="999">
-              <caret line="46" column="0" lean-forward="false" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
+            <state relative-caret-position="628">
+              <caret line="73" column="44" lean-forward="true" selection-start-line="73" selection-start-column="44" selection-end-line="73" selection-end-column="44" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AjaxResult.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/zpc/dto/AjaxResult.java">
+      <file leaf-file-name="head.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/common/head.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-              <folding>
-                <element signature="e#231#232#0" expanded="false" />
-                <element signature="e#269#270#0" expanded="false" />
-                <element signature="e#539#540#0" expanded="false" />
-                <element signature="e#569#570#0" expanded="false" />
-                <element signature="e#616#617#0" expanded="false" />
-                <element signature="e#654#655#0" expanded="false" />
-                <element signature="e#680#681#0" expanded="false" />
-                <element signature="e#707#708#0" expanded="false" />
-                <element signature="e#742#743#0" expanded="false" />
-                <element signature="e#774#775#0" expanded="false" />
-                <element signature="e#806#807#0" expanded="false" />
-                <element signature="e#834#835#0" expanded="false" />
-                <element signature="e#876#877#0" expanded="false" />
-                <element signature="e#910#911#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="297">
+              <caret line="11" column="45" lean-forward="false" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Schedule.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/zpc/entity/controlcenter/Schedule.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="27">
+              <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TaskInfo.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/zpc/entity/controlcenter/TaskInfo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="189">
+              <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ScheduleDao.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/zpc/dao/controlcenter/ScheduleDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="783">
+              <caret line="33" column="55" lean-forward="false" selection-start-line="33" selection-start-column="55" selection-end-line="33" selection-end-column="55" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -214,9 +179,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/zpc/entity/TaskConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zpc/util/AutoTaskConfig.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/zpc/service/impl/TaskConfigServiceImplTest.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/task/list.jsp" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/TaskConfig.xml" />
         <option value="$PROJECT_DIR$/src/test/java/com/zpc/Test.java" />
@@ -259,12 +221,15 @@
         <option value="$PROJECT_DIR$/src/main/resources/schema.sql" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/controlcenter/TaskConfig.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/zpc/entity/controlcenter/TaskConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/task/config.jsp" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/groovy/groovy_console.groovy" />
         <option value="$PROJECT_DIR$/src/main/resources/spring/spring-rabbitMQ.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/zpc/service/AlertService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/zpc/web/TaskConfigController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/zpc/service/impl/AlertServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zpc/dao/controlcenter/ScheduleDao.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/controlcenter/Schedule.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zpc/web/TaskConfigController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/common/head.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/task/config.jsp" />
       </list>
     </option>
   </component>
@@ -532,6 +497,82 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="task" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="control_center" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="control_center" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jsp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="control_center" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="control_center" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jsp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1001,7 +1042,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="js.eslint.eslintPackage" value="" />
@@ -1018,11 +1059,15 @@
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\IdeaWorkSpaceNew\control_center\src\main\resources\mapper\controlcenter" />
-    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.zpc.service" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\IdeaWorkSpaceNew\control_center\src\main\webapp\WEB-INF\jsp\static\js" />
+      <recent name="D:\IdeaWorkSpaceNew\control_center\src\main\webapp\WEB-INF\jsp\static\css" />
+      <recent name="D:\IdeaWorkSpaceNew\control_center\src\main\webapp\WEB-INF\static\js" />
+      <recent name="D:\IdeaWorkSpaceNew\control_center\src\main\resources\mapper" />
+      <recent name="D:\IdeaWorkSpaceNew\control_center\src\main\resources\mapper\datacenter" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.zpc.dto" />
@@ -1031,14 +1076,12 @@
       <recent name="com.zpc.dao" />
       <recent name="com.zpc.entity" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\IdeaWorkSpaceNew\control_center\src\main\resources\mapper" />
-      <recent name="D:\IdeaWorkSpaceNew\control_center\src\main\resources\mapper\datacenter" />
-      <recent name="D:\IdeaWorkSpaceNew\control_center\src\main\resources\spring" />
-      <recent name="D:\IdeaWorkSpaceNew\control_center\src\main\webapp\WEB-INF\jsp\task" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\IdeaWorkSpaceNew\control_center\src\main\webapp\WEB-INF\jsp" />
+      <recent name="D:\IdeaWorkSpaceNew\control_center\src\main\resources\mapper\controlcenter" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ScheduleDaoTest.create">
+  <component name="RunManager" selected="Tomcat Server.control_center">
     <configuration default="false" name="ScheduleDaoTest.create" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -1676,7 +1719,7 @@
       <workItem from="1513952239622" duration="4593000" />
       <workItem from="1514381749888" duration="3324000" />
       <workItem from="1514900436941" duration="530000" />
-      <workItem from="1514900970997" duration="2759000" />
+      <workItem from="1514900970997" duration="8085000" />
     </task>
     <task id="LOCAL-00001" summary="暂停功能代码上传，新增dto，配置下载服务和解析服务的消息队列">
       <created>1514387332133</created>
@@ -1685,7 +1728,14 @@
       <option name="project" value="LOCAL" />
       <updated>1514387332133</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="停止、恢复功能编码">
+      <created>1514909437583</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1514909437583</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1721,7 +1771,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="156904000" />
+    <option name="totallyTimeSpent" value="162230000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1814,7 +1864,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="暂停功能代码上传，新增dto，配置下载服务和解析服务的消息队列" />
-    <option name="LAST_COMMIT_MESSAGE" value="暂停功能代码上传，新增dto，配置下载服务和解析服务的消息队列" />
+    <MESSAGE value="停止、恢复功能编码" />
+    <option name="LAST_COMMIT_MESSAGE" value="停止、恢复功能编码" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1827,35 +1878,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="20" column="22" lean-forward="true" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/spring-web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="26" column="34" lean-forward="true" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/zpc/dao/TaskInfoDaoTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="18" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/zpc/service/impl/TaskConfigServiceImplTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="16" selection-end-column="98" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/zpc/service/impl/ScheduleServiceImplTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="529">
@@ -1944,27 +1966,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="891">
           <caret line="36" column="9" lean-forward="false" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zpc/dao/controlcenter/ScheduleDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="12" column="17" lean-forward="false" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zpc/entity/controlcenter/Schedule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-12">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zpc/entity/controlcenter/TaskInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -2085,14 +2086,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/task/config.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1134">
-          <caret line="42" column="30" lean-forward="false" selection-start-line="42" selection-start-column="30" selection-end-line="42" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/zpc/service/impl/AlertServiceImplTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="513">
@@ -2157,18 +2150,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/controlcenter/Schedule.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="19" column="21" lean-forward="true" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
-          <folding>
-            <marker date="1513170549953" expanded="true" signature="335:535" ph="SELECT sched... cloud_crawler_schedule" />
-            <marker date="1513170549953" expanded="true" signature="676:785" ph="insert into cloud_crawler_schedule... " />
-            <marker date="1513170549953" expanded="true" signature="857:992" ph="UPDATE cloud... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/controlcenter/TaskConfig.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="756">
@@ -2214,18 +2195,95 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/zpc/web/TaskConfigController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zpc/entity/controlcenter/TaskInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="808">
-          <caret line="105" column="70" lean-forward="false" selection-start-line="105" selection-start-column="70" selection-end-line="105" selection-end-column="70" />
+        <state relative-caret-position="189">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zpc/dao/controlcenter/ScheduleDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="783">
+          <caret line="33" column="55" lean-forward="false" selection-start-line="33" selection-start-column="55" selection-end-line="33" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/controlcenter/Schedule.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding>
+            <marker date="1515075709170" expanded="true" signature="335:535" ph="SELECT sched... cloud_crawler_schedule" />
+            <marker date="1515075709170" expanded="true" signature="658:767" ph="insert into cloud_crawler_schedule... " />
+            <marker date="1515075709170" expanded="true" signature="910:1019" ph="insert into cloud_crawler_schedule... " />
+            <marker date="1515075709170" expanded="true" signature="1091:1226" ph="UPDATE cloud... " />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/zpc/service/impl/AlertServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
+        <state relative-caret-position="1294">
           <caret line="134" column="0" lean-forward="true" selection-start-line="134" selection-start-column="0" selection-end-line="134" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zpc/entity/controlcenter/Schedule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zpc/web/TaskConfigController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="109" column="59" lean-forward="false" selection-start-line="109" selection-start-column="52" selection-end-line="109" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/static/js/bootstrap.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/static/css/bootstrap.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/static/js/jquery-3.2.1.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/common/head.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="11" column="45" lean-forward="false" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/task/config.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="628">
+          <caret line="73" column="44" lean-forward="true" selection-start-line="73" selection-start-column="44" selection-end-line="73" selection-end-column="44" />
           <folding />
         </state>
       </provider>
@@ -2314,7 +2372,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.2" />
+                <option value="0.42647058" />
               </list>
             </option>
           </splitter-proportions>

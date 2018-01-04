@@ -31,4 +31,5 @@ public interface ScheduleDao {
      */
     long create(Schedule schedule);
 
+    Schedule getSchedule(@Param("taskId") long taskId);
 }
